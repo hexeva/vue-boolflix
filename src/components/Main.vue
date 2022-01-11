@@ -19,7 +19,7 @@ export default {
     },
 
     props:{
-        responseMoviesArray:Object,
+        responseMoviesArray:Array,
     }
 }
 </script>
