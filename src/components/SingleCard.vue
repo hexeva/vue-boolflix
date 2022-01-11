@@ -2,9 +2,9 @@
     <div class="card">
         <ul>
             <li>{{filmCard.title}}</li>
-            <li>Titolo originale</li>
-            <li>Lingua</li>
-            <li>Voto</li>
+            <li>{{filmCard.original_title}}</li>
+            <li>{{filmCard.original_language}}</li>
+            <li>{{filmCard.vote_average}}</li>
 
         </ul>
     </div>
@@ -27,7 +27,7 @@ export default {
 .card{
     // test
 
-    width:100px;
+    width:300px;
     border:1px solid black;
     margin:20px;
     padding:20px;

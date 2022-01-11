@@ -28,6 +28,7 @@ export default {
 @import '../style/general.scss';
 .card_list{
     display: flex;
+    flex-wrap: wrap;
 
 }
 

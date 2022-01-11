@@ -1,7 +1,10 @@
 <template>
-    <div>
-        <input v-model="searchMovie" id="Search" type="text" placeholder="Cerca un film">
-        <button  @click="$emit('research',searchMovie)">Invia ricerca</button>
+    <div class="container">
+        <div class="search_bar">
+            <input class="form-control" v-model="searchMovie" id="Search" type="text" placeholder="Cerca un film">
+            <button class="btn btn-primary"  @click="$emit('research',searchMovie)">Invia ricerca</button>
+        </div>
+        
     </div>
 </template>
 
@@ -26,5 +29,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+    .search_bar{
+    display: flex;
+}
+
+
 
 </style>
