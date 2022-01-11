@@ -1,27 +1,55 @@
 <template>
   <div id="app">
-    <Header />
-    <main>MAIN</main>
+    <Header @research="callApi" />
+    <Main :responseMoviesArray="movieList" />
   </div>
 </template>
 
 <script>
-// import axios from 'axios';
-// import HelloWorld from "./components/HelloWorld.vue";
+import axios from 'axios';
+
  import Header from "./components/Header.vue";
+ import Main from "./components/Main.vue";
+
 
 
 
 export default {
   name: "App",
   components: {
-    // HelloWorld,
     Header,
+    Main,
+  },
+
+  data:function(){
+    return {
+
+      movieList:[],
+      userResearch:''
+
+    };
   },
 
 methods:{
+
+  callApi: function(text){
+    this.userResearch = text;
+            axios.get('https://api.themoviedb.org/3/search/movie', {
+                params:{
+                    api_key:'3b8e65acb65bbd04677cf76f0c18bc6d',
+                    query: this.userResearch,
+                }
+            })
+            .then((response) => {
+              console.log(response.data.results)
+                this.movieList = response.data.results
+            });
+        }
   
 },
+// End methods
+
+
 
 };
 </script>

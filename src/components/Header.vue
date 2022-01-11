@@ -1,30 +1,24 @@
 <template>
     <div>
-        <input id="Search" type="text" placeholder="Cerca">
-        <button @click="callApi">Invia ricerca</button>
+        <input v-model="searchMovie" id="Search" type="text" placeholder="Cerca un film">
+        <button  @click="$emit('research',searchMovie)">Invia ricerca</button>
     </div>
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 export default {
     name:'Header',
 
+    data:function(){
+        return{
+            searchMovie:'',
+        };
+
+    },
+
     methods:{
 
-        callApi: function(){
-            axios.get('https://api.themoviedb.org/3/search/movie', {
-                params:{
-                    api_key:'3b8e65acb65bbd04677cf76f0c18bc6d',
-                    query:'terminator'
-                }
-            })
-            .then((response) => {
-                console.log(response.data.results);
-            });
-        }
-        
-        
     },
 }
 
