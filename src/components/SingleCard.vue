@@ -1,5 +1,7 @@
 <template>
     <div class="card">
+        
+        <img :src="`https://image.tmdb.org/t/p/w342/`+filmCard.poster_path" alt="">
         <div>{{filmCard.title}}</div>
         <div>{{filmCard.original_title}}</div>
         <div>{{filmCard.original_language}}</div>
@@ -13,8 +15,21 @@
 <script>
 export default {
     name:'SingleCard',
+
+    data:function(){
+        return{
+            imagePath:'poster_path',
+            
+        }
+
+
+        
+    },
+    
+
     props:{
         filmCard:Object,
+        seriesCard:Object,
     }
 }
 </script>

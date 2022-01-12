@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @research="allResearch" />
-    <Main :responseMoviesArray="movieList" />
+    <Main :responseMoviesArray="movieList" :responseSeriesArray="seriesList"/>
   </div>
 </template>
 
@@ -39,7 +39,7 @@ methods:{
   allResearch:function(text){
     this.userResearch = text;
     this.callMovies();
-    this.callSeries();
+    this.callMovies();
 
   },
 
@@ -73,6 +73,8 @@ methods:{
         this.seriesList = response.data.results
       });
     },
+  // // end callSeries
+
   
 },
 // End methods
