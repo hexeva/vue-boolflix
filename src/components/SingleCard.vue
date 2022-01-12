@@ -12,7 +12,10 @@
 
             <div>{{cardTitle}}</div>
             <div>{{filteredName}}</div>
-            <div>{{filmCard.original_language}}</div>
+            <div v-if="this.allLanuages.includes(filmCard.original_language)" class="flags">
+                <img :src="require(`../assets/img/${filmCard.original_language}.png`)" alt="">
+            </div>
+            <div v-else>{{filmCard.original_language}}</div>
             <div>{{filmCard.vote_average}}</div>
             
         </div>
@@ -27,6 +30,8 @@ export default {
     data:function(){
         return{
             imagePath:'poster_path',
+            allLanuages:['it','fr','ja','en'],
+            
             
             
         }
@@ -81,15 +86,17 @@ export default {
         .image_found{
             width:100%;
 
-               &_box{
+               &>.image_box{
                    img{
                        max-width: 100%;
                    }
                }
         }
-
-        
-
+}
+.flags{
+    img{
+        width:20px;
+    }
 }
 
 </style>
