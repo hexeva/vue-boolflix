@@ -33,13 +33,17 @@ export default {
 
 methods:{
 
+  // FUunzione di richiamo dell'emit generica per film e serie tv
+
   allResearch:function(text){
     this.userResearch = text;
-    this.callApi;
+    this.callMovies();
 
   },
 
-  callApi: function(){
+  // funzione di chiamata api per i movies
+
+  callMovies: function(){
             axios.get('https://api.themoviedb.org/3/search/movie', {
                 params:{
                     api_key:this.apiKey,
