@@ -1,13 +1,21 @@
 <template>
-    <div class="card">
-        
-        <img :src="`https://image.tmdb.org/t/p/w342/`+filmCard.poster_path" alt="">
-        <div>{{cardTitle}}</div>
-        <div>{{filteredName}}</div>
-        <div>{{filmCard.original_language}}</div>
-        <div>{{filmCard.vote_average}}</div>
+        <div class="card">
+            <div class="image_found" >
+                <div v-if="filmCard.poster_path == null">
+                    NO IMAGE FOUND
+                </div>
+                <div class="image_box" v-else>
+                    <img :src="`https://image.tmdb.org/t/p/w342/`+filmCard.poster_path" alt="">
+                </div>
+            </div>
             
-    </div>
+
+            <div>{{cardTitle}}</div>
+            <div>{{filteredName}}</div>
+            <div>{{filmCard.original_language}}</div>
+            <div>{{filmCard.vote_average}}</div>
+            
+        </div>
 
         
 </template>
@@ -69,6 +77,16 @@ export default {
     margin:20px;
     padding:20px;
     text-align: center;
+    
+        .image_found{
+            width:100%;
+
+               &_box{
+                   img{
+                       max-width: 100%;
+                   }
+               }
+        }
 
         
 
