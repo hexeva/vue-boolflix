@@ -39,7 +39,7 @@ methods:{
   allResearch:function(text){
     this.userResearch = text;
     this.callMovies();
-    this.callMovies();
+    this.callSeries();
 
   },
 
