@@ -1,8 +1,10 @@
 <template>
         <div class="card">
             <div class="image_found" >
-                <div v-if="filmCard.poster_path == null">
+                <div class="not_found" v-if="filmCard.poster_path == null">
                     NO IMAGE FOUND
+                    <div><i class="far fa-frown fa-5x"></i></div>
+                    
                 </div>
                 <div class="image_box" v-else>
                     <img :src="`https://image.tmdb.org/t/p/w342/`+filmCard.poster_path" alt="">
@@ -85,6 +87,14 @@ export default {
     
         .image_found{
             width:100%;
+
+            .not_found{
+                // test
+                height:356px;
+                i{
+                    line-height: 356px;
+                }
+            }
 
                &>.image_box{
                    img{
