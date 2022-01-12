@@ -2,7 +2,7 @@
     <main>
         <div class="container">
             <!-- FILM -->
-            <h2>ALL MOVIES</h2>
+            <h2>ALL MOVIES </h2>
             <div class="movie_list">
                 <div class="row row-cols-lg-5">
                     <SingleCard v-for="(movie,index) in responseMoviesArray" :key="index"  :filmCard="movie"/>
