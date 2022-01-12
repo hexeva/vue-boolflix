@@ -1,12 +1,10 @@
 <template>
     <div class="card">
-        <ul>
-            <li>{{filmCard.title}}</li>
-            <li>{{filmCard.original_title}}</li>
-            <li>{{filmCard.original_language}}</li>
-            <li>{{filmCard.vote_average}}</li>
-
-        </ul>
+        <div>{{filmCard.title}}</div>
+        <div>{{filmCard.original_title}}</div>
+        <div>{{filmCard.original_language}}</div>
+        <div>{{filmCard.vote_average}}</div>
+            
     </div>
 
         
@@ -27,15 +25,13 @@ export default {
 .card{
     // test
 
-    width:300px;
+    
     border:1px solid black;
     margin:20px;
     padding:20px;
     text-align: center;
 
-        li{
-            margin:5px 0;
-        }
+        
 
 }
 

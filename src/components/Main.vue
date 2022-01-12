@@ -1,10 +1,30 @@
 <template>
-    <section>
-        <div class="card_list">
-            <SingleCard v-for="(movie,index) in responseMoviesArray" :key="index" :filmCard="movie"/>
+    <main>
+        <div class="container">
+            <!-- FILM -->
+            <h2>ALL MOVIES</h2>
+            <div class="movie_list">
+                <div class="row row-cols-lg-5">
+                    <SingleCard v-for="(movie,index) in responseMoviesArray" :key="index" :filmCard="movie"/>
+                </div>
+            </div>
+
+            <!-- SERIE TV -->
+            <h2>ALL TV SERIES</h2>
+
+            <div class="series_list">
+                <div class="row row-cols-lg-5">
+                    <SingleCard v-for="(movie,index) in responseMoviesArray" :key="index" :filmCard="movie"/>
+                </div>
+            </div>
             
+            
+
         </div>
-    </section>
+        
+    </main>
+        
+   
     
 </template>
 
@@ -26,11 +46,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '../style/general.scss';
-.card_list{
-    display: flex;
-    flex-wrap: wrap;
 
-}
 
 
 

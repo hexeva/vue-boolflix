@@ -25,6 +25,7 @@ export default {
     return {
 
       movieList:[],
+      seriesList:[],
       userResearch:'',
       apiKey:'3b8e65acb65bbd04677cf76f0c18bc6d',
 
@@ -38,6 +39,7 @@ methods:{
   allResearch:function(text){
     this.userResearch = text;
     this.callMovies();
+    this.callSeries();
 
   },
 
@@ -51,10 +53,26 @@ methods:{
                 }
             })
             .then((response) => {
-              console.log(response.data.results)
+              // console.log(response.data.results)
                 this.movieList = response.data.results
             });
+        },
+    // end callMovies
+
+    // Funzione di chiamata api per TV SHOWS
+
+    callSeries:function(){
+      axios.get('https://api.themoviedb.org/3/search/tv', {
+        params:{
+          api_key:this.apiKey,
+          query:this.userResearch,
         }
+      })
+      .then((response) =>{
+        // console.log(response.data.results)
+        this.seriesList = response.data.results
+      });
+    },
   
 },
 // End methods
