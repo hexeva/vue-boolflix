@@ -18,7 +18,10 @@
                 <img :src="require(`../assets/img/${filmCard.original_language}.png`)" alt="">
             </div>
             <div v-else>{{filmCard.original_language}}</div>
-            <div>{{filmCard.vote_average}}</div>
+            <div class="votes">
+                <i v-for="(star,index) in votes" :key="index" class="fas fa-star"></i>
+                <i v-for="(star,index) in (5 - votes)" :key="index" class="far fa-star"></i>
+            </div>
             <div>{{filmCard.overview}}</div>
             
         </div>
