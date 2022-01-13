@@ -40,6 +40,7 @@ methods:{
     this.userResearch = text;
     this.callMovies();
     this.callSeries();
+    
 
   },
 

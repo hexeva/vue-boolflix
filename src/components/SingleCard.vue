@@ -1,5 +1,5 @@
 <template>
-        <div class="card">
+        <div class="my_card">
             <!-- CARD IMAGE -->
             <div class="front_card ">
                 <div class="image_found" >
@@ -16,17 +16,16 @@
             
             <!-- CARD INFO -->
                <div class="back_card">
-                    <div>{{cardTitle}}</div>
-                    <div>{{filteredName}}</div>
-                    <div v-if="this.allLanguages.includes(filmCard.original_language)" class="flags">
+                    <div>Title: {{cardTitle}}</div>
+                    <div>Name: {{filteredName}}</div>
+                    <div v-if="this.allLanguages.includes(filmCard.original_language)" class="flags">Lang: 
                         <img :src="require(`../assets/img/${filmCard.original_language}.png`)" alt="">
                     </div>
                     <div v-else>{{filmCard.original_language}}</div>
-                    <div class="votes">
-                        <i v-for="(star,index) in votes" :key="index" class="fas fa-star"></i>
-                        <i v-for="(emptyStar,index) in (5 - votes)" :key="index" class="far fa-star"></i>
+                    <div class="votes">Averages:
+                        <i v-for="number in 5" :key="number" :class="{fas : number <= votes, far : number > votes}" class="fa-star"></i>
                     </div>
-                    <div>{{filmCard.overview}}</div>
+                    <div>Description: {{filmCard.overview}}</div>
                </div>
             
         </div>
@@ -89,17 +88,34 @@ export default {
 
 @import '../style/general.scss';
 
-.card{
+.my_card{
     border:1px solid $brand_background_color;
+    background-color: $brand_background_color;
     border-radius:8px;
     margin:20px;
     padding:20px;
     text-align: center;
     cursor: pointer;
 
+    .front_card{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+
+    }
+
     
         .image_found{
             width:100%;
+            height:100%;
+            color: $brand_text_color;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+           
             
                &>.image_box{
                    img{
@@ -109,6 +125,13 @@ export default {
         }
     .back_card{
         display: none;
+        background-color: $brand_background_color;
+        color: $brand_text_color;
+        line-height: 21px;
+        padding: 20px 0;
+        text-align: start;
+        height:100%;
+        font-size: small;
     }
         
 
@@ -121,10 +144,10 @@ export default {
 }
 
 
-.card:hover .front_card{
+.my_card:hover .front_card{
     display:none;
 }
-.card:hover .back_card{
+.my_card:hover .back_card{
     display: block;
 }
 // end card

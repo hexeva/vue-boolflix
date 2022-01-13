@@ -1,7 +1,7 @@
 <template>
     <main>
         <div class="my_container">
-            <!-- FILM -->
+              <!-- FILM -->
             
             <div class="content_list">
                 <div class="row row-cols-lg-6">
@@ -11,17 +11,12 @@
 
             <!-- SERIE TV -->
             
-
             <div class="content_list">
                 <div class="row row-cols-lg-6">
                     <SingleCard v-for="(show,index) in responseSeriesArray" :key="index"  :filmCard="show"/>
                 </div>
             </div>
-            
-            
-
         </div>
-        
     </main>
         
    
@@ -51,7 +46,7 @@ export default {
 
 main{
     width:100%;
-    height:100%;
+    height:100vh;
     background-color: black;
 
     .content_list{
