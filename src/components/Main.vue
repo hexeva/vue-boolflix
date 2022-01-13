@@ -1,8 +1,8 @@
 <template>
     <main>
-        <div class="container">
+        <div class="my_container">
             <!-- FILM -->
-            <h2>ALL MOVIES </h2>
+            
             <div class="movie_list">
                 <div class="row row-cols-lg-5">
                     <SingleCard v-for="(movie,index) in responseMoviesArray" :key="index"  :filmCard="movie"/>
@@ -10,7 +10,7 @@
             </div>
 
             <!-- SERIE TV -->
-            <h2>ALL TV SERIES</h2>
+            
 
             <div class="series_list">
                 <div class="row row-cols-lg-5">
@@ -48,6 +48,12 @@ export default {
 <style lang="scss" scoped>
 @import '../style/variables.scss';
 @import '../style/general.scss';
+
+main{
+    width:100%;
+    height:100%;
+    background-color: black;
+}
 
 
 
