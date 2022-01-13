@@ -46,7 +46,8 @@ export default {
 
 main{
     width:100%;
-    height:100vh;
+    height:calc(100vh - 80px);
+    overflow-y: auto;
     background-color: black;
 
     .content_list{
