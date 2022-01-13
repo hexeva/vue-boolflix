@@ -14,11 +14,12 @@
             <div>{{cardTitle}}</div>
             <div>{{filteredName}}</div>
             <!--  -->
-            <div v-if="this.allLanuages.includes(filmCard.original_language)" class="flags">
+            <div v-if="this.allLanguages.includes(filmCard.original_language)" class="flags">
                 <img :src="require(`../assets/img/${filmCard.original_language}.png`)" alt="">
             </div>
             <div v-else>{{filmCard.original_language}}</div>
             <div>{{filmCard.vote_average}}</div>
+            <div>{{filmCard.overview}}</div>
             
         </div>
 
@@ -32,7 +33,8 @@ export default {
     data:function(){
         return{
             imagePath:'poster_path',
-            allLanuages:['it','fr','ja','en'],
+            allLanguages:['it','fr','ja','en'],
+            votes:parseInt(Math.round(this.filmCard.vote_average / 2)),
             
             
             
@@ -74,6 +76,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../style/variables.scss';
+
 @import '../style/general.scss';
 
 .card{
@@ -87,14 +91,6 @@ export default {
     
         .image_found{
             width:100%;
-
-            .not_found{
-                // test
-                height:356px;
-                i{
-                    line-height: 356px;
-                }
-            }
 
                &>.image_box{
                    img{

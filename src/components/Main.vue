@@ -13,7 +13,7 @@
             <h2>ALL TV SERIES</h2>
 
             <div class="series_list">
-                <div class="row row-cols-lg-4">
+                <div class="row row-cols-lg-5">
                     <SingleCard v-for="(show,index) in responseSeriesArray" :key="index"  :filmCard="show"/>
                 </div>
             </div>
