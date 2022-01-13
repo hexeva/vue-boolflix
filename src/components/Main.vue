@@ -3,8 +3,8 @@
         <div class="my_container">
             <!-- FILM -->
             
-            <div class="movie_list">
-                <div class="row row-cols-lg-5">
+            <div class="content_list">
+                <div class="row row-cols-lg-6">
                     <SingleCard v-for="(movie,index) in responseMoviesArray" :key="index"  :filmCard="movie"/>
                 </div>
             </div>
@@ -12,8 +12,8 @@
             <!-- SERIE TV -->
             
 
-            <div class="series_list">
-                <div class="row row-cols-lg-5">
+            <div class="content_list">
+                <div class="row row-cols-lg-6">
                     <SingleCard v-for="(show,index) in responseSeriesArray" :key="index"  :filmCard="show"/>
                 </div>
             </div>
@@ -53,6 +53,12 @@ main{
     width:100%;
     height:100%;
     background-color: black;
+
+    .content_list{
+
+        padding: 30px;
+
+    }
 }
 
 

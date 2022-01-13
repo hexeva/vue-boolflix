@@ -1,7 +1,7 @@
 <template>
         <div class="card">
             <!-- CARD IMAGE -->
-            <div class="front_card">
+            <div class="front_card ">
                 <div class="image_found" >
                     <div class="not_found" v-if="filmCard.poster_path == null">
                         NO IMAGE FOUND
@@ -15,7 +15,7 @@
             
             
             <!-- CARD INFO -->
-               <div class="back_card d-none">
+               <div class="back_card">
                     <div>{{cardTitle}}</div>
                     <div>{{filteredName}}</div>
                     <div v-if="this.allLanguages.includes(filmCard.original_language)" class="flags">
@@ -43,7 +43,7 @@ export default {
         return{
             imagePath:'poster_path',
             allLanguages:['it','fr','ja','en'],
-            votes:parseInt(Math.round(this.filmCard.vote_average / 2)),
+            votes:parseInt(Math.ceil(this.filmCard.vote_average / 2)),
             
             
             
@@ -90,13 +90,11 @@ export default {
 @import '../style/general.scss';
 
 .card{
-    // test
-
-    
     border:1px solid black;
     margin:20px;
     padding:20px;
     text-align: center;
+    cursor: pointer;
     
         .image_found{
             width:100%;
@@ -107,11 +105,31 @@ export default {
                    }
                }
         }
-}
-.flags{
-    img{
-        width:20px;
+    .back_card{
+        display: none;
     }
+        
+
+       
+
+
+
+    .flags{
+        img{
+            width:20px;
+        }
 }
+
+}
+
+
+.card:hover .front_card{
+    display:none;
+}
+.card:hover .back_card{
+    display: block;
+}
+// end card
+
 
 </style>
