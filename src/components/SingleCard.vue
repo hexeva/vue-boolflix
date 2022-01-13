@@ -5,7 +5,7 @@
                 <div class="image_found" >
                     <div class="not_found" v-if="filmCard.poster_path == null">
                         NO IMAGE FOUND
-                        <div><i class="far fa-frown fa-5x"></i></div>
+                        <div class="not_found_icon"><i class="far fa-frown fa-5x"></i></div>
                     </div>
                     <div class="image_box" v-else>
                         <img :src="`https://image.tmdb.org/t/p/w342/`+filmCard.poster_path" alt="">
@@ -90,15 +90,17 @@ export default {
 @import '../style/general.scss';
 
 .card{
-    border:1px solid black;
+    border:1px solid $brand_background_color;
+    border-radius:8px;
     margin:20px;
     padding:20px;
     text-align: center;
     cursor: pointer;
+
     
         .image_found{
             width:100%;
-
+            
                &>.image_box{
                    img{
                        max-width: 100%;
@@ -109,10 +111,6 @@ export default {
         display: none;
     }
         
-
-       
-
-
 
     .flags{
         img{
