@@ -4,7 +4,6 @@
                 <div class="not_found" v-if="filmCard.poster_path == null">
                     NO IMAGE FOUND
                     <div><i class="far fa-frown fa-5x"></i></div>
-                    
                 </div>
                 <div class="image_box" v-else>
                     <img :src="`https://image.tmdb.org/t/p/w342/`+filmCard.poster_path" alt="">
@@ -14,6 +13,7 @@
 
             <div>{{cardTitle}}</div>
             <div>{{filteredName}}</div>
+            <!--  -->
             <div v-if="this.allLanuages.includes(filmCard.original_language)" class="flags">
                 <img :src="require(`../assets/img/${filmCard.original_language}.png`)" alt="">
             </div>
